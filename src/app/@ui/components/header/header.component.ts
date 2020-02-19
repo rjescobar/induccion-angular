@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Menu } from '../shared/menu.model';
-import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: []
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
   public titulo = 'MINED-X!';
@@ -18,7 +17,7 @@ export class HeaderComponent implements OnInit {
       {
         titulo: 'Docente',
         descripcion: 'Menu Docentes',
-        enlace: '/docentes',
+        enlace: '/docente',
         activo: true
       },
       {

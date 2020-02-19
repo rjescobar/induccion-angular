@@ -9,7 +9,8 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active" *ngFor="let item of lista">
 
-                <a *ngIf="item.activo" class="nav-link" href="{{item.enlace}}">{{ item.titulo }}
+                <a *ngIf="item.activo" class="nav-link" [routerLink]="item.enlace"
+                    routerLinkActive="link-activo">{{ item.titulo }}
                     <span class="sr-only">(current)</span></a>
             </li>
         </ul>
