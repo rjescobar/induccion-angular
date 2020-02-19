@@ -16,15 +16,15 @@ export class HeaderComponent implements OnInit {
     // Inicializamos la lista
     this.lista = [
       {
-        titulo: 'Cliente',
-        descripcion: 'Menu Clientes',
-        enlace: '/cliente',
-        activo: true
-      },
-      {
         titulo: 'Docente',
         descripcion: 'Menu Docentes',
         enlace: '/docentes',
+        activo: true
+      },
+      {
+        titulo: 'Estudiante',
+        descripcion: 'Menu Estudiante',
+        enlace: '/estudiante',
         activo: true
       }
     ];
