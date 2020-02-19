@@ -1,32 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { Menu } from '../shared/menu.model';
-import { EventEmitter } from 'protractor';
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: []
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
   public titulo = 'MINED-X!';
 
-  public lista: any[] = [];
+  public lista: Menu[] = [];
 
   ngOnInit(): void {
-    const menuCliente: Menu = new Menu();
-    menuCliente.titulo = 'Cliente';
-    menuCliente.descripcion = 'Menu Clientes';
-    menuCliente.enlace = '/cliente';
-    menuCliente.activo = true;
-
-    const menuDocente: Menu = new Menu();
-    menuDocente.titulo = 'Docente';
-    menuDocente.descripcion = 'Menu Docentes';
-    menuDocente.enlace = '/docentes';
-    menuDocente.activo = false;
-
-    this.lista.push(menuCliente);
-    this.lista.push(menuDocente);
+    this.lista = [
+      {
+        titulo: 'Estudiante',
+        descripcion: 'Menu estudiante',
+        enlace: '/estudiante',
+        activo: true
+      },
+      {
+        titulo: 'Docente',
+        descripcion: 'Menu Docentes',
+        enlace: '/docente',
+        activo: true
+      }
+    ];
   }
 
   public eventoInput(event: any) {
@@ -34,7 +32,7 @@ export class HeaderComponent implements OnInit {
     console.log(event.target.value);
   }
 
-  public eventoClick() {
+  public eventoClick(event: any) {
     this.titulo = 'rafael';
     console.log(this.titulo);
   }
