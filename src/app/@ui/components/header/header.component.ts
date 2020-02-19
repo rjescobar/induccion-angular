@@ -10,23 +10,24 @@ import { EventEmitter } from 'protractor';
 export class HeaderComponent implements OnInit {
   public titulo = 'MINED-X!';
 
-  public lista: any[] = [];
+  lista: Menu[] = [];
 
   ngOnInit(): void {
-    const menuCliente: Menu = new Menu();
-    menuCliente.titulo = 'Cliente';
-    menuCliente.descripcion = 'Menu Clientes';
-    menuCliente.enlace = '/cliente';
-    menuCliente.activo = true;
-
-    const menuDocente: Menu = new Menu();
-    menuDocente.titulo = 'Docente';
-    menuDocente.descripcion = 'Menu Docentes';
-    menuDocente.enlace = '/docentes';
-    menuDocente.activo = false;
-
-    this.lista.push(menuCliente);
-    this.lista.push(menuDocente);
+    // Inicializamos la lista
+    this.lista = [
+      {
+        titulo: 'Cliente',
+        descripcion: 'Menu Clientes',
+        enlace: '/cliente',
+        activo: true
+      },
+      {
+        titulo: 'Docente',
+        descripcion: 'Menu Docentes',
+        enlace: '/docentes',
+        activo: true
+      }
+    ];
   }
 
   public eventoInput(event: any) {
