@@ -21,6 +21,9 @@ export class DocenteComponent implements OnInit {
       })
     );
 
+    this.activatedRouter.snapshot.paramMap.get('id');
+
+    // Aqui ya podemos utilizarlo :D
     console.log(id);
   }
 }

@@ -9,15 +9,30 @@ import { EstudianteComponent } from './components/estudiante/estudiante.componen
 import { DocenteComponent } from './components/docente/docente.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { RouterModule } from '@angular/router';
+import { DocenteEditarComponent } from './components/docente-editar/docente-editar.component';
+import { from } from 'rxjs';
+// Agrega las funcionalidades para Forms en angular
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     EstudianteComponent,
     DocenteComponent,
-    InicioComponent
+    InicioComponent,
+    DocenteEditarComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, UiModule, NgbModule, RouterModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    UiModule,
+    NgbModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
