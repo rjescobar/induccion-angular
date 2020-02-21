@@ -1,0 +1,54 @@
+<form [formGroup]="f" (ngSubmit)="guardar()">
+    <!--Nombre y Apellido-->
+    <div class="form-group row">
+        <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" id="nombre" formControlName="nombre">
+            <div class="form-control-feedback" *ngIf="f.get('nombre').errors?.required">
+                Este campo es requerido
+            </div>
+            <div class="form-control-feedback" *ngIf="f.get('nombre').errors?.minlength">
+                Por lo menos 3 caracteres
+            </div>
+        </div>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" id="apellido" formControlName="apellido">
+        </div>
+
+    </div>
+    <!--Codigo de docente-->
+    <div class="form-group row">
+        <label for="codigo" class="col-sm-2 col-form-label">Código</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="codigo" formControlName="codigo">
+        </div>
+    </div>
+    <!--Fecha de nacimiento-->
+    <div class="form-group row">
+        <label for="fechaNacimiento" class="col-sm-2 col-form-label">Fecha de nacimiento</label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" id="fechaNacimiento" formControlName="fechaNacimiento">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="departamento" class="col-sm-2 col-form-label">Departamento</label>
+        <div class="col-sm-10">
+            <select id="departamento" class="form-control" formControlName="departamento">
+                <option value="">Seleccione un departamento</option>
+                <option *ngFor="let item of departamentos" [value]="item.codigo">
+                    {{item.nombre}}
+                </option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Guardar</button>
+        </div>
+    </div>
+
+    {{ f.valid }}
+    {{ f.status }}
+
+</form>
