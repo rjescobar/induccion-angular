@@ -5,4 +5,5 @@ export class Docente {
   codigo: string;
   fechaNacimiento: Date;
   departamento?: number;
+  id: string;
 }

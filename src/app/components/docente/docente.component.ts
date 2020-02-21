@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { DocenteService } from '../shared/docente.service';
+import { Docente } from '../shared/docente.model';
 
 @Component({
   selector: 'app-docente',
@@ -8,22 +9,19 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./docente.component.css']
 })
 export class DocenteComponent implements OnInit {
-  constructor(public activatedRouter: ActivatedRoute) {}
+  constructor(public router: Router, private service: DocenteService) {}
+
+  public lista: Docente[] = [];
 
   ngOnInit() {
-    // Mantiene el valor del parametro.
-    let id: string;
-    // Obtiene el parametro o los parametros.
-    this.activatedRouter.paramMap.pipe(
-      map((param: ParamMap) => {
-        id = param.get('id');
-        // console.log(param.get('id'));
-      })
-    );
+    // Leemos la base de datos.
+    this.service.obtenerDocentes().subscribe((result: Docente[]) => {
+      this.lista = result;
+    });
+  }
 
-    this.activatedRouter.snapshot.paramMap.get('id');
-
-    // Aqui ya podemos utilizarlo :D
-    console.log(id);
+  public editar(id: string) {
+    // redireccionamos
+    this.router.navigateByUrl('/docente/' + id);
   }
 }
